@@ -5,7 +5,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 class Booking(Base):
     __tablename__='booking'
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     client_id: Mapped[int] = mapped_column(ForeignKey('client.id'))
     room_id: Mapped[int] = mapped_column(ForeignKey('room.id'))
     check_in_date: Mapped[Date] = mapped_column(type_=Date)

@@ -5,7 +5,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 class Room_occupancy(Base):
     __tablename__='room_occupancy'
 
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True, autoincrement=True)
     staff_id: Mapped[int] = mapped_column(ForeignKey('staff.id'))
     room_id: Mapped[int] = mapped_column(ForeignKey('room.id'))
     start_date: Mapped[int] = mapped_column(type_=Date)
