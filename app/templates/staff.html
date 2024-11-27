@@ -134,10 +134,15 @@
     }
 
     async function addStaff() {
-        const fullName = document.getElementById('addFullName').value;
-        const position = document.getElementById('addPosition').value;
-        const contact = document.getElementById('addContact').value;
-        const workSchedule = document.getElementById('addWorkSchedule').value;
+        const fullName = document.getElementById('addFullName').value.trim();
+        const position = document.getElementById('addPosition').value.trim();
+        const contact = document.getElementById('addContact').value.trim();
+        const workSchedule = document.getElementById('addWorkSchedule').value.trim();
+
+        if (!fullName || !position || !contact || !workSchedule) {
+            alert('Все поля должны быть заполнены!');
+            return;
+        }
 
         const data = { full_name: fullName, position, contact, work_schedule: workSchedule };
 
@@ -177,10 +182,15 @@
 
     async function updateStaff() {
         const id = document.getElementById('editStaffId').value;
-        const fullName = document.getElementById('editFullName').value;
-        const position = document.getElementById('editPosition').value;
-        const contact = document.getElementById('editContact').value;
-        const workSchedule = document.getElementById('editWorkSchedule').value;
+        const fullName = document.getElementById('editFullName').value.trim();
+        const position = document.getElementById('editPosition').value.trim();
+        const contact = document.getElementById('editContact').value.trim();
+        const workSchedule = document.getElementById('editWorkSchedule').value.trim();
+
+        if (!fullName || !position || !contact || !workSchedule) {
+            alert('Все поля должны быть заполнены!');
+            return;
+        }
 
         const data = { full_name: fullName, position, contact, work_schedule: workSchedule };
 

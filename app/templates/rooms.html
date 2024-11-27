@@ -42,7 +42,13 @@
         <h3>Добавить новую комнату</h3>
         <form id="addForm">
             <label>Тип:</label>
-            <input type="text" id="addRootType" style="width: 100%; margin-bottom: 10px;">
+            <select id="addRootType" style="width: 100%; margin-bottom: 10px;">
+                <option value="" disabled selected>Выберите тип</option>
+                <option value="Одноместная">Одноместная</option>
+                <option value="Двухместная">Двухместная</option>
+                <option value="Люкс">Люкс</option>
+                <!-- Добавьте другие типы по необходимости -->
+            </select>
             <label>Статус:</label>
             <input type="text" id="addStatus" style="width: 100%; margin-bottom: 10px;">
             <label>Цена за ночь:</label>
@@ -58,7 +64,13 @@
         <form id="editForm">
             <input type="hidden" id="editRoomId">
             <label>Тип:</label>
-            <input type="text" id="editRootType" style="width: 100%; margin-bottom: 10px;">
+            <select id="editRootType" style="width: 100%; margin-bottom: 10px;">
+                <option value="" disabled selected>Выберите тип</option>
+                <option value="Одноместная">Одноместная</option>
+                <option value="Двухместная">Двухместная</option>
+                <option value="Люкс">Люкс</option>
+                <!-- Добавьте другие типы по необходимости -->
+            </select>
             <label>Статус:</label>
             <input type="text" id="editStatus" style="width: 100%; margin-bottom: 10px;">
             <label>Цена за ночь:</label>
@@ -132,6 +144,12 @@
         const status = document.getElementById('addStatus').value;
         const priceForNight = document.getElementById('addPriceForNight').value;
 
+        // Валидация на пустые поля
+        if (!rootType || !status || !priceForNight) {
+            alert('Все поля должны быть заполнены!');
+            return;
+        }
+
         const data = { root_type: rootType, status, price_for_night: priceForNight };
 
         try {
@@ -172,6 +190,12 @@
         const rootType = document.getElementById('editRootType').value;
         const status = document.getElementById('editStatus').value;
         const priceForNight = document.getElementById('editPriceForNight').value;
+
+        // Валидация на пустые поля
+        if (!rootType || !status || !priceForNight) {
+            alert('Все поля должны быть заполнены!');
+            return;
+        }
 
         const data = { root_type: rootType, status, price_for_night: priceForNight };
 
@@ -217,3 +241,4 @@
     }
 </script>
 {% endblock %}
+

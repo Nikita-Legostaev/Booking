@@ -134,10 +134,15 @@
     }
 
     async function addClient() {
-        const fullName = document.getElementById('addFullName').value;
-        const contact = document.getElementById('addContact').value;
-        const passportNumber = document.getElementById('addPassportNumber').value;
+        const fullName = document.getElementById('addFullName').value.trim();
+        const contact = document.getElementById('addContact').value.trim();
+        const passportNumber = document.getElementById('addPassportNumber').value.trim();
         const registryDate = document.getElementById('addRegistryDate').value;
+
+        if (!fullName || !contact || !passportNumber || !registryDate) {
+            alert('Все поля должны быть заполнены!');
+            return;
+        }
 
         const data = { full_name: fullName, contact, passport_number: passportNumber, registry_date: registryDate };
 
@@ -177,10 +182,15 @@
 
     async function updateClient() {
         const id = document.getElementById('editClientId').value;
-        const fullName = document.getElementById('editFullName').value;
-        const contact = document.getElementById('editContact').value;
-        const passportNumber = document.getElementById('editPassportNumber').value;
+        const fullName = document.getElementById('editFullName').value.trim();
+        const contact = document.getElementById('editContact').value.trim();
+        const passportNumber = document.getElementById('editPassportNumber').value.trim();
         const registryDate = document.getElementById('editRegistryDate').value;
+
+        if (!fullName || !contact || !passportNumber || !registryDate) {
+            alert('Все поля должны быть заполнены!');
+            return;
+        }
 
         const data = { full_name: fullName, contact, passport_number: passportNumber, registry_date: registryDate };
 
